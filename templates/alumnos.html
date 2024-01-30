@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Saludos desde alumnos</h1>
+{% extends 'layout2.html' %}
+
+{%block content %}
+{%import "_macros.html" as macros%}
+<h1 class="h1"> Alumnos</h1>
+<form action="" method="POST">
+  
     
-</body>
-</html>
+    {{macros.input_Form(form.nombre,class="form-control")}}
+    {{macros.input_Form(form.email,class="form-control")}}
+    {{macros.input_Form(form.apellidoPaterno,class="form-control")}}
+
+    <input type="submit" name="btn1" />
+
+    <h1>Nombre:{{nom}}</h1>
+
+</form>
+
+{%endblock %}
