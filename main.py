@@ -10,15 +10,22 @@ def index():
 @app.route("/alumnos",methods=["GET","POST"])
 def alumnos():
    nom=""
+   apa =""
+   ama=""
+   correo=""
+   edad=""
    alumnos_form=forms.UserForm(request.form)
-   if request.method == "POST":
-      nom = alumnos_form.nombre.data
-      apellidoPaterno = alumnos_form.apellidoPaterno.data
-      correo = alumnos_form.email.data
+   if request.method == "POST" and alumnos_form.validate():
+      apa = alumnos_form.apaterno.data
+      ama = alumnos_form.amaterno.data
+      correo = alumnos_form.correo.data
       print("nombre: {}".format(nom))
-      print("apellidoPaterno: {}".format(apellidoPaterno))
+      print("apaterno: {}".format(apa))
+      print("amaterno: {}".format(ama))
       print("correo: {}".format(correo))
-   return render_template("alumnos.html",form=alumnos_form,nom=nom)
+      print("correo: {}".format(edad))
+
+   return render_template("alumnos.html",form=alumnos_form,nom=nom,ama=ama,apa=apa,correo=correo,edad=edad)
 
 @app.route("/maestros")
 def maestros():
@@ -72,10 +79,6 @@ def mult1():
         num2=request.form.get("n2")
 
         return "<h1>El resultado es: {}</h1>".format(str(int(num1)*int(num2)))
-
-
-
-
 
 
 if __name__ == "__main__":

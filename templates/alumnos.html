@@ -3,12 +3,13 @@
 {%block content %}
 {%import "_macros.html" as macros%}
 <h1 class="h1"> Alumnos</h1>
-<form action="" method="POST">
-  
-    
-    {{macros.input_Form(form.nombre,class="form-control")}}
-    {{macros.input_Form(form.email,class="form-control")}}
-    {{macros.input_Form(form.apellidoPaterno,class="form-control")}}
+<form action="" method="POST" novalidate>   
+
+    {{macros.render_field(form.nombre,class="form-control")}}
+    {{macros.render_field(form.apaterno,class="form-control")}}
+    {{macros.render_field(form.amaterno,class="form-control")}}
+    {{macros.render_field(form.correo,class="form-control")}}
+    {{macros.render_field(form.edad,class="form-control")}}
 
     <input type="submit" name="btn1" />
 
