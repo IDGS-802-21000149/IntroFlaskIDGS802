@@ -5,11 +5,12 @@
 <h1 class="h1"> Alumnos</h1>
 <form action="" method="POST" novalidate>   
 
-    {{macros.render_field(form.nombre,class="form-control")}}
-    {{macros.render_field(form.apaterno,class="form-control")}}
-    {{macros.render_field(form.amaterno,class="form-control")}}
-    {{macros.render_field(form.correo,class="form-control")}}
-    {{macros.render_field(form.edad,class="form-control")}}
+    <input type="hidden" name="csrf" value="{{csr_token}}"/>
+    {{macros.render_field2(form.nombre,class="form-control")}}
+    {{macros.render_field2(form.apaterno,class="form-control")}}
+    {{macros.render_field2(form.amaterno,class="form-control")}}
+    {{macros.render_field2(form.correo,class="form-control")}}
+    {{macros.render_field2(form.edad,class="form-control")}}
 
     <input type="submit" name="btn1" />
 

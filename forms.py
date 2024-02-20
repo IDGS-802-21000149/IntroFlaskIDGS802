@@ -1,5 +1,5 @@
 from wtforms import Form
-from wtforms import StringField,IntegerField
+from wtforms import StringField,IntegerField,RadioField
 from wtforms import EmailField
 from wtforms import validators
 
@@ -16,4 +16,12 @@ class UserForm(Form):
     correo=EmailField("correo",[validators.Email(message="Ingrese un correo valido")])
 
     #materias=SelectField(choices=[('Espaniol','esp'),('Matematicas','mate'),('Ingles','Ing')])
-    
+ 
+
+class GuardarIdiomaForm(Form):
+    espaniol = StringField("Español", validators=[validators.DataRequired(message="El campo es requerido")])
+    ingles = StringField("Inglés", validators=[validators.DataRequired(message="El campo es requerido")])
+
+class ConsultarIdiomaForm(Form):
+    palabra = StringField("Palabra a buscar", validators=[validators.DataRequired(message="El campo es requerido")])
+    idioma = RadioField("Idioma", choices=[("Espanol", "Español"), ("Ingles", "Inglés")])
